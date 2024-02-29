@@ -1,4 +1,4 @@
-
+//JV1.01
 const canvas = document.getElementById("canvas");
 const canvas2 = document.getElementById("canvas2");
 
@@ -41,7 +41,7 @@ function resizeCanvas() {
 
 
   // Email text details
-  var emailText = 'jonathan@it-velasco.com';
+  var emailText = 'E-mail';
   var textSize = Math.round(canvas2.width / 15);
   var textX = canvas2.width * 0.1;
   var textY = canvas2.height * 0.80;
