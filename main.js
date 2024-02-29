@@ -5,12 +5,15 @@ const canvas2 = document.getElementById("canvas2");
 const ctx = canvas.getContext("2d");
 const ctx2 = canvas2.getContext("2d");
 
-const fontSize = 20;
-const columns = Math.floor(window.innerWidth / fontSize);
 const charSet = "0123456789abcdefghijklmnopqrstuvwxyz!§$%&/()=?ßüäö+*~#'-_.:,;<>|"; //can expand this with more characters
-const matrix = [];
+const fontSize = 20;
+var columns = Math.floor(window.innerWidth / fontSize);
+var matrix = []; 
 
 function resizeCanvas() {
+
+  columns = Math.floor(window.innerWidth / fontSize);
+  matrix = []; 
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -21,13 +24,13 @@ function resizeCanvas() {
   canvas2.height = window.innerHeight;
 
   //text 1
-  var textSize = Math.round(canvas2.width / 35);
+  var textSize = Math.round(canvas2.width / 25);
   ctx2.font = textSize + 'px "Courier New", monospace'; // Customize as per your need
   ctx2.fillStyle = 'white'; // Text color
   ctx2.fillText('Hello, World!', window.innerWidth * 0.1, canvas.height * 0.1); // Customize text and position
 
   //text 2
-  var textSize = Math.round(canvas2.width / 25);
+  var textSize = Math.round(canvas2.width / 15);
   ctx2.font = textSize + 'px "Courier New", monospace'; // Customize as per your need
   ctx2.fillStyle = 'white'; // Text color
   ctx2.fillText("I'm Jonathan Velasco!", window.innerWidth * 0.1, canvas.height * 0.30);
@@ -39,7 +42,7 @@ function resizeCanvas() {
 
   // Email text details
   var emailText = 'jonathan@it-velasco.com';
-  var textSize = Math.round(canvas2.width / 30);
+  var textSize = Math.round(canvas2.width / 15);
   var textX = canvas2.width * 0.1;
   var textY = canvas2.height * 0.80;
   var isHovering = false; // Track hover state
@@ -86,14 +89,14 @@ function resizeCanvas() {
     }
   });
 
-
+  //matrix
+  for (let i = 0; i < columns; i++) {
+    matrix[i] = Math.floor(Math.random() * canvas.height);
+  }
 
 }
 
-//matrix
-for (let i = 0; i < columns; i++) {
-  matrix[i] = Math.floor(Math.random() * canvas.height);
-}
+
 
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
