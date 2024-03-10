@@ -5,15 +5,16 @@ const canvas2 = document.getElementById("canvas2");
 const ctx = canvas.getContext("2d");
 const ctx2 = canvas2.getContext("2d");
 
+
 const charSet = "0123456789abcdefghijklmnopqrstuvwxyz!§$%&/()=?ßüäö+*~#'-_.:,;<>|"; //can expand this with more characters
 const fontSize = 20;
 var columns = Math.floor(window.innerWidth / fontSize);
-var matrix = []; 
+var matrix = [];
 
 function resizeCanvas() {
 
   columns = Math.floor(window.innerWidth / fontSize);
-  matrix = []; 
+  matrix = [];
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -40,7 +41,7 @@ function resizeCanvas() {
 
 
 
-  // Email text details
+  // Email text details ***********************************
   var emailText = 'E-mail';
   var textSize = Math.round(canvas2.width / 15);
   var textX = canvas2.width * 0.1;
@@ -49,7 +50,7 @@ function resizeCanvas() {
 
   function drawEmailText(highlight) {
     ctx2.font = textSize + 'px "Courier New", monospace';
-    ctx2.fillStyle = highlight ? 'blue' : 'white'; // Change color on hover
+    ctx2.fillStyle = highlight ? 'green' : 'white'; // Change color on hover
     ctx2.fillText(emailText, textX, textY);
   }
 
@@ -89,14 +90,61 @@ function resizeCanvas() {
     }
   });
 
+  // Channel text details ***********************
+  var channelText = 'Ch. 2';
+  var channelSize = Math.round(canvas2.width / 25);
+  var chTextX = canvas2.width * 0.7;
+  var chTextY = canvas2.height * 0.10;
+  var chIsHovering = false; // Track hover state
+
+  function drawchannelText(highlight) {
+    ctx2.font = channelSize + 'px "Courier New", monospace';
+    ctx2.fillStyle = highlight ? 'blue' : 'white'; // Change color on hover
+    ctx2.fillText(channelText, chTextX, chTextY);
+  }
+
+  // Initial drawing
+  drawchannelText(false);
+
+  // Measure text
+  var channelSizeMetrics = ctx2.measureText(channelText);
+  var channelTextWidth = channelSizeMetrics.width;
+  var channelTextHeight = channelSize;
+
+  canvas2.addEventListener('mousemove', function (event) {
+    var rect = canvas2.getBoundingClientRect();
+    var xCh = event.clientX - rect.left;
+    var yCh = event.clientY - rect.top;
+
+    // Check if hover is within text boundaries
+    if (xCh > chTextX && xCh < chTextX + channelTextWidth && yCh > chTextY - channelTextHeight && yCh < chTextY) {
+      if (!chIsHovering) {
+        chIsHovering = true;
+        drawchannelText(true); // Highlight text
+        canvas2.style.cursor = 'pointer'; // Change cursor to pointer
+      }
+    } else {
+      if (chIsHovering) {
+        chIsHovering = false;
+        drawchannelText(false); // Revert to original style
+        canvas2.style.cursor = 'default'; // Reset cursor to default
+      }
+    }
+  });
+
+  canvas2.addEventListener('click', function (event) {
+    // Use the same logic to check click position
+    if (chIsHovering) {
+      window.location.href = './pages/channel2.html'; // Open default mail client
+    }
+  });
+
   //matrix
   for (let i = 0; i < columns; i++) {
     matrix[i] = Math.floor(Math.random() * canvas.height);
   }
 
 }
-
-
 
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -121,7 +169,6 @@ function update() {
 }
 
 update();
-
 
 // Initial resize
 resizeCanvas();

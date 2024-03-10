@@ -1,5 +1,4 @@
 body {
-    
     margin: 0;
     overflow-x: hidden;
     background-color: black;
@@ -17,7 +16,22 @@ body {
     display: block; /* Prevents default inline behavior */
 }
 
+#canvas3 {
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block; /* Prevents default inline behavior */
+}
+
 #canvas2 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block; /* Prevents default inline behavior */
+}
+
+#canvas4 {
     position: absolute;
     width: 100%;
     height: auto;
