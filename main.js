@@ -135,7 +135,7 @@ function resizeCanvas() {
   canvas2.addEventListener('click', function (event) {
     // Use the same logic to check click position
     if (chIsHovering) {
-      window.location.href = './pages/channel2.html'; // Open default mail client
+      window.location.href = './channels/channel2.html'; // Open default mail client
     }
   });
 
