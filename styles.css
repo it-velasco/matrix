@@ -1,0 +1,29 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: justify;
+}
+
+#banner {
+    background: #8E2DE2;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4A00E0, #8E2DE2);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: rgb(255, 255, 255);
+    background-image: url('./assets/images/tianyi-ma-WiONHd_zYI4-unsplash.jpg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    height: 90vh;
+}
+
+.nav {
+    background: rgb(255, 255, 255);
+}
+
+#left-panel {
+    background-color: aliceblue;
+}
+
+#right-panel {}
