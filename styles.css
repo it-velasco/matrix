@@ -4,26 +4,47 @@ body {
 }
 
 #banner {
-    background: #8E2DE2;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4A00E0, #8E2DE2);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     color: rgb(255, 255, 255);
-    background-image: url('./assets/images/tianyi-ma-WiONHd_zYI4-unsplash.jpg');
-    background-size: 100% auto;
+    background-image: url('./assets/images/image0.png');
+    background-size: cover; /* Change to cover to ensure full coverage of the banner area */
     background-repeat: no-repeat;
+    background-position: center; /* Ensures the most important part of the image is always in the center */
     height: 90vh;
 }
+
+/* Media query for smartphones */
+@media (max-width: 768px) {
+    #banner {
+        height: 50vh; /* Adjust the height on smaller screens to not take up too much screen real estate */
+        background-size: cover; /* Keep cover for small screens to ensure full coverage */
+        background-position: center; /* Adjust the background position if needed for better focus on the image's subject */
+    }
+}
+
 
 .nav {
     background: rgb(255, 255, 255);
 }
 
 #left-panel {
-    background-color: aliceblue;
 }
 
 #right-panel {}
+
+.panel-image {
+    max-width: 100%; /* Allows the image to be fully responsive within the column */
+    height: auto; /* Maintains the image's aspect ratio */
+    display: block; /* Ensures the image is treated as a block-level element, which can help with centering */
+    margin: 0 auto 10px; /* Centers the image horizontally within its container and adds some space below it */
+}
+
+
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    color: #333;
+}
