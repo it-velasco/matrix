@@ -1,0 +1,41 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+#content {
+    width: auto;
+    min-height: 100vh;
+
+    background: black;  /* fallback for old browsers */
+    color: white;
+    
+
+
+}
+
+#content-2 {
+    width: auto;
+    min-height: 100vh;
+
+    background: white;  /* fallback for old browsers */
+    color: black;
+    
+
+}
+
+#accountInfo {
+    display: none;
+}
+
+.appField {
+    /* Ensure responsive behavior */
+    max-width: 100%;
+    overflow: hidden;
+    word-wrap: break-word; /* Handle long words */
+}
+
+.standbyAccountText {
+    /* Style for the dynamically updated text */
+    white-space: pre-line; /* Preserve line breaks */
+}
